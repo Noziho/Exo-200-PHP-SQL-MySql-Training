@@ -37,7 +37,7 @@ require __DIR__ . '/DB_Connect.php';
         }?>
     </table><?php
     }?>
-
+    <a href="/index.php">Home</a>
 </body>
 </html>
 

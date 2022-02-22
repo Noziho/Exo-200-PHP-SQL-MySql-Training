@@ -15,18 +15,18 @@ if (isset($_GET['f'])) {?>
 }
 ?>
     <form action="/addRando.php" method="post">
-        <input type="text" name="name" placeholder="Nom de la randonnée">
-        <select name="difficulty" id="difficulty">
+        <input type="text" name="name" placeholder="Nom de la randonnée" required minlength="5" maxlength="80">
+        <select name="difficulty" id="difficulty" required >
             <option value="très facile">Très facile</option>
             <option value="facile">Facile</option>
             <option value="moyen">Moyen</option>
             <option value="difficile">Difficile</option>
             <option value="très difficile">Très difficile</option>
         </select>
-        <input type="number" name="distance" placeholder="Distance">
+        <input type="number" name="distance" placeholder="Distance" required minlength="5" maxlength="50">
         <!-- Ajoutez un / des champs pour gérer la donnée de type time à insérer via PHP -->
-        <input type="time" name="duration">
-        <input type="number" name="height_difference" placeholder="Dénivelée">
+        <input type="time" name="duration" required>
+        <input type="number" name="height_difference" placeholder="Dénivelée" required>
 
         <input type="submit" name="validate">
     </form>

@@ -1,14 +1,8 @@
 <?php
 require __DIR__ . '/Config.php';
 require __DIR__ . '/DB_Connect.php';
-function formIsset (...$inputNames): bool {
-    foreach ($inputNames as $inputName) {
-        if (!isset($_POST[$inputName])) {
-            return false;
-        }
-    }
-    return true;
-}
+require __DIR__ . '/checkForm.php';
+
 
 if (!formIsset('name', 'difficulty', 'distance', 'duration', 'height_difference', 'validate')) {
     header("Location: /read.php");
