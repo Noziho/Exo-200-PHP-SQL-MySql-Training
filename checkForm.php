@@ -8,8 +8,21 @@ function formIsset (...$inputNames): bool {
     return true;
 }
 
-function checkRange($inputName, $min, $max, $redirect) {
-    if (strlen($_POST[$inputName]) < $min || strlen($_POST[$inputName]) > $max) {
-        header("Location: /$redirect");
+function checkRange (string$value, int$min, int$max, $redirect):void {
+    if (strlen($value) < $min || strlen($value) > $max) {
+        header("Location: ". $redirect);
+        exit();
     }
+
 }
+
+function getSecuredIntPostData(string $name, int $defaultValue = 0): int {
+    $data = $_POST[$name] ?? $defaultValue;
+    return (int)$data;
+}
+
+function checkFilter($var) {
+    if (!$var) {
+        header("Location: /index.php");
+    }
+};

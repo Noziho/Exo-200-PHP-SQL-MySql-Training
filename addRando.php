@@ -8,7 +8,24 @@ if (!formIsset('name', 'difficulty', 'distance', 'duration', 'height_difference'
     exit();
 }
 
+$name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
+$difficulty = filter_var($_POST['difficulty'], FILTER_SANITIZE_STRING);
+$distance = filter_var($_POST['distance'], FILTER_SANITIZE_NUMBER_INT);
+$duration = filter_var($_POST['duration'], FILTER_SANITIZE_NUMBER_INT);
+$height_difference = filter_var($_POST['height_difference'], FILTER_SANITIZE_NUMBER_INT);
 
+checkFilter($name);
+checkFilter($difficulty);
+checkFilter($distance);
+checkFilter($duration);
+checkFilter($height_difference);
+
+
+checkRange($name, 5, 80, '/index.php');
+checkRange($difficulty, 5, 50, '/index.php');
+checkRange($distance, 0, 2000, '/index.php');
+checkRange($duration, 0, 6000, '/index.php');
+checkRange($height_difference, 5*0, 2000, '/index.php');
 
 function add_content ($name, $difficulty, $distance, $duration, $height_difference) {
     $stmt = DB_Connect::dbConnect()->prepare("
@@ -25,6 +42,6 @@ function add_content ($name, $difficulty, $distance, $duration, $height_differen
     $stmt->execute();
 }
 
-add_content($_POST['name'], $_POST['difficulty'], $_POST['distance'], $_POST['duration'], $_POST['height_difference']);
+add_content($name, $difficulty, $distance, $duration, $height_difference);
 
-header("Location: /create.php?f=0");
+//header("Location: /create.php?f=0");
