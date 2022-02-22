@@ -32,6 +32,7 @@ require __DIR__ . '/DB_Connect.php';
         <td>Distance: <?=$value['distance'];?> km</td>
         <td>Durée: <?=$value['duration'];?></td>
         <td>Dénivelée: <?=$value['height_difference'];?> m</td>
+        <td>Validité: <?= $value['available'] ?></td>
         <td><a href="/delete.php?id=<?= $value['id'] ?>">Supprimez la randonnée</a></td>
                 <?php
         }?>

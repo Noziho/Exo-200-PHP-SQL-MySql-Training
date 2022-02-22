@@ -28,6 +28,12 @@ if (isset($_GET['f'])) {?>
         <input type="time" name="duration" required>
         <input type="number" name="height_difference" placeholder="Dénivelée" required>
 
+        <select name="available" id="available" required>
+            <option value="Validite">Validité: </option>
+            <option value="Oui">Oui</option>
+            <option value="Non">Non</option>
+        </select>
+
         <input type="submit" name="validate">
     </form>
 <a href="/index.php">Home</a>

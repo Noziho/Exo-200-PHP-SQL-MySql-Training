@@ -37,6 +37,12 @@ $stmt = DB_Connect::dbConnect()->prepare("
     <input type="time" name="duration" value="<?= $value['duration'] ?>" required>
     <input type="number" name="height_difference" placeholder="Dénivelée" value="<?= $value['height_difference'] ?>" required>
 
+    <select name="available" id="available" required>
+        <option value="<?= $value['available']?>"><?= $value['available']?></option>
+        <option value="Oui">Oui</option>
+        <option value="Non">Non</option>
+    </select>
+
     <input type="submit" name="validate" value="Modifiez">
 </form><?php
 
