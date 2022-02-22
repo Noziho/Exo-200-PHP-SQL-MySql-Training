@@ -1,0 +1,10 @@
+table, tr ,td {
+    border: 1px solid black;
+}
+
+.absolute {
+    width: 100%;
+    height: 5rem;
+    color: whitesmoke;
+    background: mediumseagreen;
+}
