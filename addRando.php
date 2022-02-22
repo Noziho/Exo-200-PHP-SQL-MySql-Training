@@ -25,7 +25,7 @@ checkRange($name, 5, 80, '/index.php');
 checkRange($difficulty, 5, 50, '/index.php');
 checkRange($distance, 0, 2000, '/index.php');
 checkRange($duration, 0, 6000, '/index.php');
-checkRange($height_difference, 5*0, 2000, '/index.php');
+checkRange($height_difference, 0, 2000, '/index.php');
 
 function add_content ($name, $difficulty, $distance, $duration, $height_difference) {
     $stmt = DB_Connect::dbConnect()->prepare("
@@ -44,4 +44,4 @@ function add_content ($name, $difficulty, $distance, $duration, $height_differen
 
 add_content($name, $difficulty, $distance, $duration, $height_difference);
 
-//header("Location: /create.php?f=0");
+header("Location: /create.php?f=0");
