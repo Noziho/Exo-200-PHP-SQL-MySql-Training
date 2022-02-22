@@ -14,7 +14,7 @@ if (isset($_GET['f'])) {?>
     <div class="absolute">La randonnée à été ajouter avec succès.</div><?php
 }
 ?>
-    <form action="/formTreatment.php" method="post">
+    <form action="/addRando.php" method="post">
         <input type="text" name="name" placeholder="Nom de la randonnée">
         <select name="difficulty" id="difficulty">
             <option value="très facile">Très facile</option>

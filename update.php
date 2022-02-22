@@ -1,19 +1,13 @@
 <?php
 require __DIR__ . '/Config.php';
 require __DIR__ . '/DB_Connect.php';
-if ($_GET['id'] == 1) {
-$stmt = DB_Connect::dbConnect()->prepare("
-    SELECT * FROM hiking WHERE id = 1
-");
-if ($stmt->execute()) {
-    foreach ($stmt->fetchAll() as $value) {
-        if ($value['name']) { ?>
-            <input type="text" value="<?= $value['name'] ?>"><?php
-        }
+$id = $_GET['id'];
 
-    }
-}
-}?>
+$stmt = DB_Connect::dbConnect()->prepare("
+    SELECT * FROM hiking WHERE id = $id
+");
+
+?>
 
 
 <!doctype html>
@@ -26,6 +20,29 @@ if ($stmt->execute()) {
     <title>Document</title>
 </head>
 <body>
+<form action="/updateRando.php?id=<?= $_GET['id'] ?>" method="post"><?php
+    if ($stmt->execute()) {
+    foreach ($stmt->fetchAll() as $value) { ?>
+    <input type="text" name="name" placeholder="Nom de la randonnée" value="<?= $value['name'] ?>">
+    <select name="difficulty" id="difficulty">
+        <option value="<?= $value['difficulty'] ?>"><?= $value['difficulty'] ?></option>
+        <option value="très facile">Très facile</option>
+        <option value="facile">Facile</option>
+        <option value="moyen">Moyen</option>
+        <option value="difficile">Difficile</option>
+        <option value="très difficile">Très difficile</option>
+    </select>
+    <input type="number" name="distance" placeholder="Distance" value="<?= $value['distance'] ?>">
+    <!-- Ajoutez un / des champs pour gérer la donnée de type time à insérer via PHP -->
+    <input type="time" name="duration" value="<?= $value['duration'] ?>">
+    <input type="number" name="height_difference" placeholder="Dénivelée" value="<?= $value['height_difference'] ?>">
 
+    <input type="submit" name="validate" value="Modifiez">
+</form><?php
+}
+} ?>
+
+
+<a href="/read.php">Retour arrière</a>
 </body>
 </html>
