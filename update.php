@@ -20,7 +20,7 @@ $stmt = DB_Connect::dbConnect()->prepare("
     <title>Document</title>
 </head>
 <body>
-<form action="/updateRando.php?id=<?= $_GET['id'] ?>" method="post"><?php
+<form action="/addOrUpdateRando.php?id=<?= $_GET['id'] ?>&e=0" method="post"><?php
     if ($stmt->execute()) {
     foreach ($stmt->fetchAll() as $value) { ?>
     <input type="text" name="name" placeholder="Nom de la randonnée" value="<?= $value['name'] ?>" required minlength="5" maxlength="80">

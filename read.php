@@ -25,13 +25,13 @@ require __DIR__ . '/DB_Connect.php';
     <table><?php
         foreach ($stmt->fetchAll() as $value) {?>
         <tr>
-            <td><a href="/update.php?id=<?= $value['id'] ?>"><?=$value['name'];?></a></td>
+            <td><a href="/update.php?id=<?= $value['id'] ?>" title="Cliquez pour modifier la randonnée" ><?=$value['name'];?></a></td>
         </tr>
 
-        <td><?=$value['difficulty'];?></td>
-        <td><?=$value['distance'];?></td>
-        <td><?=$value['duration'];?></td>
-        <td><?=$value['height_difference'];?></td>
+        <td>Difficulté: <?=$value['difficulty'];?></td>
+        <td>Distance: <?=$value['distance'];?> km</td>
+        <td>Durée: <?=$value['duration'];?></td>
+        <td>Dénivelée: <?=$value['height_difference'];?> m</td>
         <td><a href="/delete.php?id=<?= $value['id'] ?>">Supprimez la randonnée</a></td>
                 <?php
         }?>
