@@ -31,7 +31,9 @@ require __DIR__ . '/DB_Connect.php';
         <td><?=$value['difficulty'];?></td>
         <td><?=$value['distance'];?></td>
         <td><?=$value['duration'];?></td>
-        <td><?=$value['height_difference'];?></td><?php
+        <td><?=$value['height_difference'];?></td>
+        <td><a href="/delete.php?id=<?= $value['id'] ?>">Supprimez la randonnée</a></td>
+                <?php
         }?>
     </table><?php
     }?>

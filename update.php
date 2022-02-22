@@ -39,8 +39,10 @@ $stmt = DB_Connect::dbConnect()->prepare("
 
     <input type="submit" name="validate" value="Modifiez">
 </form><?php
+
 }
-} ?>
+
+}?>
 
 
 <a href="/read.php">Retour arrière</a>

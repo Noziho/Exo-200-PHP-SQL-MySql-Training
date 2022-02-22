@@ -28,8 +28,8 @@ function update_content ($name, $difficulty, $distance, $duration, $height_diffe
     $stmt->bindParam(':height_difference', $height_difference);
 
     $stmt->execute();
+
+    header("Location: /read.php");
 }
 
 update_content($_POST['name'], $_POST['difficulty'], $_POST['distance'], $_POST['duration'], $_POST['height_difference']);
-
-header("Location: /read.php?f=0");
